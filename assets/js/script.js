@@ -1,4 +1,21 @@
-// Create CCS
+
+document.getElementById("Start").addEventListener("click", function(){
+var time = 75;
+var countTime = setInterval(function(){
+    document.getElementById("time").innerHTML=time
+
+    time--;
+    if (time === 0) {
+        stopInterval()
+    }
+},1000);
+
+var stopInterval = function(){
+    console.log('time is up');
+    clearInterval(countTime);
+}
+});
+
 
 // hides first page on click
 function hideFirstPage () {
