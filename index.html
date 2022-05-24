@@ -13,14 +13,24 @@
 
     <header>
         <Nav>
-
-        </Nav>
-       
+            <ul>
+                <li>
+                   <a href="#view-high-scores">View high scores</a> 
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Time: 
+                </li>
+            </ul>
+        </Nav>  
     </header>
-    <main >
+
+
+    <main>
 <!--First Page-->
-        <div id="firstDiv">
-        <h1 class="firstpage">
+        <div class="main" id="firstDiv">
+        <h1>
             Coding Quiz Challenge
         </h1>
 
@@ -31,7 +41,7 @@
         <button onclick="hideFirstPage(); hideQuestion ()" >
             Start Quiz
         </button>
-    </div>
+        </div>
 
 <!--End of First Page -->
 
@@ -45,6 +55,22 @@
 
 <!--Second Page-->
 
+<div class="firstpage firstquestion" id="myDIV">
+        
+    <div>     
+        <h2>
+            Commonly used data types DO Not Include
+        </h2>
+
+        <div>
+            <button onclick="wrongAnswer()">1. strings</button>
+            <button onclick="correctAnswer()">2. booleans</button>
+            <button onclick="wrongAnswer()">3. alerts</button>
+            <button onclick="wrongAnswer()">4. numbers</button>
+        </div>  
+    </div>  
+</div>
+<!--Third Page-->
 <div class="firstquestion" id="myDIV">
         
     <div>     
@@ -60,9 +86,7 @@
         </div>  
     </div>  
 </div>
-<!--End of Second Page-->
-
-
+<!--End of Third Page-->
     </main>
    
     <footer>
