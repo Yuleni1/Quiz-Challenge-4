@@ -35,27 +35,36 @@
 
 <!--End of First Page -->
 
-<!--Second Page-->
-        <div class="firstquestion" id="myDIV">
+<div class="wronganswer" id="wrongAnswer">
+    <span> WRONG ANSWER!</span>
+</div>
 
-       
+<div class="correctanswer" id="correctAnswer">
+    <span> CORRECT ANSWER!</span>
+</div>
+
+<!--Second Page-->
+
+<div class="firstquestion" id="myDIV">
+        
+    <div>     
         <h2>
-            Commonly used data types DO Not Inclue
+            Commonly used data types DO Not Include
         </h2>
 
         <div>
-            <button>1. stings</button>
-            <button>2. booleans</button>
-            <button>3. alerts</button>
-            <button>4. numbers</button>
-        </div>
-    </div>
-
+            <button onclick="wrongAnswer()">1. strings</button>
+            <button onclick="correctAnswer()">2. booleans</button>
+            <button onclick="wrongAnswer()">3. alerts</button>
+            <button onclick="wrongAnswer()">4. numbers</button>
+        </div>  
+    </div>  
+</div>
 <!--End of Second Page-->
 
 
     </main>
-
+   
     <footer>
 
     </footer>

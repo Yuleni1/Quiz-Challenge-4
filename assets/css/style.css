@@ -37,7 +37,26 @@ button {
     color: white;
 }
 
-.firstquestion {
+.wronganswer {
     display: none;
 }
 
+.correctanswer{
+    display: none;
+}
+
+.firstquestion {
+    display: none;
+
+}
+
+.firstquestion div {
+    display: flex;
+    flex-direction: column;
+    align-self: baseline;
+    
+}
+
+.firstquestion div button {
+    margin: 5px;
+}

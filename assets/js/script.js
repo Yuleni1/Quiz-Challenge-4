@@ -12,7 +12,7 @@ function hideFirstPage () {
 
 
 function hideQuestion () {
-    var firstQuestion= document.getElementById("myDIV")
+    var firstQuestion= document.getElementById("myDIV");
     if (firstQuestion.style.display === "block") {
         firstQuestion.style.display = "none";}
         else {
@@ -21,6 +21,29 @@ function hideQuestion () {
 
         console.log(firstQuestion);
     }
+
+function wrongAnswer() {
+    var wrongAnswerQuestion1 = document.getElementById("wrongAnswer");
+    if (wrongAnswerQuestion1.style.display === "block"){
+        wrongAnswerQuestion1.style.display = "none";}
+
+        else {
+            wrongAnswerQuestion1.style.display = "block";}
+console.log(wrongAnswerQuestion1);
+        }
+
+function correctAnswer() {
+    var correctAnswerQuestion1 = document.getElementById("correctAnswer");
+    if (correctAnswerQuestion1.style.display === "block"){
+        correctAnswerQuestion1.style.display = "none";}
+
+        else {
+            correctAnswerQuestion1.style.display = "block";}
+console.log(correctAnswerQuestion1);
+        }
+
+
+
 
 
 
