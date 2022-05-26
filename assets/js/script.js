@@ -1,4 +1,4 @@
-
+var pageContectEL = document.querySelector("#myDIV");
 document.getElementById("Start").addEventListener("click", function(){
     var time = 75;
     var countTime = setInterval(function(){
@@ -25,7 +25,7 @@ document.getElementById("Start").addEventListener("click", function(){
         else{
             firstPage.style.visibility = "hidden";
         }
-    }
+    };
     
     
     function hideQuestion () {
@@ -37,7 +37,7 @@ document.getElementById("Start").addEventListener("click", function(){
             }
     
             //console.log(firstQuestion);
-        }
+        };
     
     function wrongAnswer() {
         var wrongAnswerQuestion1 = document.getElementById("wrongAnswer");
@@ -47,7 +47,7 @@ document.getElementById("Start").addEventListener("click", function(){
             else {
                 wrongAnswerQuestion1.style.display = "block";}
     //console.log(wrongAnswerQuestion1);
-            }
+            };
     
     function correctAnswer() {
         var correctAnswerQuestion1 = document.getElementById("correctAnswer");
@@ -57,7 +57,7 @@ document.getElementById("Start").addEventListener("click", function(){
             else {
                 correctAnswerQuestion1.style.display = "block";}
     //console.log(correctAnswerQuestion1);
-            }
+            };
     
 var myQuestions = {
     
@@ -68,40 +68,72 @@ var myQuestions = {
         choice3:"3. alerts",
         choice4:"4. numbers",
         correctChoice:"3. alerts" 
+    },
+    question2:{
+        title2: "The condition in an if / else statement is enclosed with _________.",
+        choice1:"1. quotes",
+        choice2:"2. curly brackets",
+        choice3:"3. parenthesis",
+        choice4:"4. square brackers",
+        correctChoice:"2. curly brackets" 
     }
     
 
-}         
+};        
 
 
 
-function firstQuestionPage (q){
-    var containerEL = document.getElementById("myDiv");
-    console.log(containerEL);
-
-    var firstQuestion = document.getElementById("question");
-    firstQuestion.textContent = myQuestions.question1.title1;
-
-    console.log(firstQuestion);
-
-    var firstQuestionAnswer = document.getElementById("choice1");
-    firstQuestionAnswer.textContent = myQuestions.question1.choice1;
-
-    var firstQuestionAnswer = document.getElementById("choice2");
-    firstQuestionAnswer.textContent = myQuestions.question1.choice2;
-
-    var firstQuestionAnswer = document.getElementById("choice3");
-    firstQuestionAnswer.textContent = myQuestions.question1.choice3;
-
-    var firstQuestionAnswer = document.getElementById("choice4");
-    firstQuestionAnswer.textContent = myQuestions.question1.choice4;
+function firstQuestionPage (){
     
+
+    var firstQuestionEl = document.getElementById("question");
+    firstQuestionEl.textContent = myQuestions.question1.title1;
+
+    console.log(firstQuestionEl);
+
+    var firstQuestionAnswerEL = document.getElementById("choice1");
+    firstQuestionAnswerEL.textContent = myQuestions.question1.choice1;
+
+    var firstQuestionAnswerEL = document.getElementById("choice2");
+    firstQuestionAnswerEL.textContent = myQuestions.question1.choice2;
+
+    var firstQuestionAnswerEL = document.getElementById("choice3");
+    firstQuestionAnswerEL.textContent = myQuestions.question1.choice3;
+
+    var firstQuestionAnswerEL = document.getElementById("choice4");
+    firstQuestionAnswerEL.textContent = myQuestions.question1.choice4;
+
 };
 
 firstQuestionPage(myQuestions);
 
-
-
-
+pageContectEL.addEventListener("click",function(){
  
- 
+    var moveToNext = document.getElementById("myDIV");
+    moveToNext.style.display = "none";
+
+    function secondQuestionPage(){
+        var questionEl = document.getElementById("question");
+        questionEl.textContent = myQuestions.question2.title2;
+        console.log(questionEl);
+
+        var answerEl = document.getElementById("choice1");
+        answerEl.textContent = myQuestions.question2.choice1;
+    
+        var answerEl = document.getElementById("choice2");
+        answerEl.textContent = myQuestions.question2.choice2;
+    
+        var answerEl = document.getElementById("choice3");
+        answerEl.textContent = myQuestions.question2.choice3;
+    
+        var answerEl = document.getElementById("choice4");
+        answerEl.textContent = myQuestions.question2.choice4;
+    
+    }
+
+    if (moveToNext.style.display = "none"){
+        moveToNext.style.display = "block";
+    }
+    secondQuestionPage(myQuestions);
+})
+
