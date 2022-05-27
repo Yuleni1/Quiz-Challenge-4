@@ -1,7 +1,7 @@
 var pageContectEL = document.querySelector("#myDIV");
 var secondContentEl = document.querySelector("#myDIV");
 document.getElementById("Start").addEventListener("click", function(){
-    var time = 75;
+    var time = 10;
     var countTime = setInterval(function(){
         document.getElementById("time").innerHTML=time
     
@@ -12,8 +12,11 @@ document.getElementById("Start").addEventListener("click", function(){
     },1000);
     
     var stopInterval = function(){
+
         console.log('time is up');
         clearInterval(countTime);
+        firstQuestionPage ();
+
     }
     });
     
@@ -59,7 +62,7 @@ document.getElementById("Start").addEventListener("click", function(){
                 correctAnswerQuestion1.style.display = "block";}
     //console.log(correctAnswerQuestion1);
             };
-    
+
 var myQuestions = {
     
     question1:{
@@ -99,6 +102,7 @@ var myQuestions = {
     }
 
 };        
+
 
 
 
@@ -220,6 +224,6 @@ pageContectEL.addEventListener("click",function(){
     }
     forthQuestionPage(myQuestions);
     console.log(forthQuestionPage);
-    })
-})
-})
+    });
+});
+});
