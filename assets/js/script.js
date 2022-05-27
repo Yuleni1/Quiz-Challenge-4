@@ -1,4 +1,5 @@
 var pageContectEL = document.querySelector("#myDIV");
+var secondContentEl = document.querySelector("#myDIV");
 document.getElementById("Start").addEventListener("click", function(){
     var time = 75;
     var countTime = setInterval(function(){
@@ -76,8 +77,26 @@ var myQuestions = {
         choice3:"3. parenthesis",
         choice4:"4. square brackers",
         correctChoice:"2. curly brackets" 
+    },
+    question3:{
+        title3: "String values must be enclosed within _________ when being assigned to variables.",
+        choice1:"1. commas",
+        choice2:"2. curly brackets",
+        choice3:"3. quotes",
+        choice4:"4. parenthesis",
+        correctChoice:"2. quotes"
+
+    },
+
+    question4:{
+        title4: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        choice1:"1. JavaScript",
+        choice2:"2. terminal/bash",
+        choice3:"3. for loops",
+        choice4:"4. console.log",
+        correctChoice:"4. console.log"
+
     }
-    
 
 };        
 
@@ -135,5 +154,72 @@ pageContectEL.addEventListener("click",function(){
         moveToNext.style.display = "block";
     }
     secondQuestionPage(myQuestions);
-})
 
+
+
+pageContectEL.addEventListener("click",function(){ 
+    var moveToNext = document.getElementById("myDIV");
+    moveToNext.style.display = "none";
+
+    function thirdQuestionPage(){
+        var thirdQuestionEl = document.getElementById("question");
+        thirdQuestionEl.textContent = myQuestions.question3.title3;
+        console.log(thirdQuestionEl);
+
+        var thirdAnswerEl = document.getElementById("choice1");
+        thirdAnswerEl.textContent = myQuestions.question3.choice1;
+    
+        var thirdAnswerEl = document.getElementById("choice2");
+        thirdAnswerEl.textContent = myQuestions.question3.choice2;
+    
+        var thirdAnswerEl = document.getElementById("choice3");
+        thirdAnswerEl.textContent = myQuestions.question3.choice3;
+    
+        var thirdAnswerEl = document.getElementById("choice4");
+        thirdAnswerEl.textContent = myQuestions.question3.choice4;
+    
+    }
+
+    
+    if (moveToNext.style.display = "none"){
+        moveToNext.style.display = "block";
+    }
+    thirdQuestionPage(myQuestions);
+    console.log(thirdQuestionPage);
+
+
+     
+
+
+pageContectEL.addEventListener("click",function(){ 
+    var moveToNext = document.getElementById("myDIV");
+    moveToNext.style.display = "none";
+
+    function forthQuestionPage(){
+        var forthQuestionEl = document.getElementById("question");
+        forthQuestionEl.textContent = myQuestions.question4.title4;
+        console.log(forthQuestionEl);
+
+        var forthAnswerEl = document.getElementById("choice1");
+        forthAnswerEl.textContent = myQuestions.question4.choice1;
+    
+        var forthAnswerEl = document.getElementById("choice2");
+        forthAnswerEl.textContent = myQuestions.question4.choice2;
+    
+        var forthAnswerEl = document.getElementById("choice3");
+        forthAnswerEl.textContent = myQuestions.question4.choice3;
+    
+        var forthAnswerEl = document.getElementById("choice4");
+        forthAnswerEl.textContent = myQuestions.question4.choice4;
+    
+    }
+
+    
+    if (moveToNext.style.display = "none"){
+        moveToNext.style.display = "block";
+    }
+    forthQuestionPage(myQuestions);
+    console.log(forthQuestionPage);
+    })
+})
+})
