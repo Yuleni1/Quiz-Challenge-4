@@ -54,7 +54,7 @@ button {
     color: white;
 }
 
-.wronganswer {
+/* .wronganswer {
     display: none;
 }
 
@@ -65,7 +65,7 @@ button {
 .firstquestion {
     display: none;
 
-}
+} */
 
 .firstquestion div {
     display: flex;
