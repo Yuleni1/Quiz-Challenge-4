@@ -219,6 +219,7 @@ pageContectEL.addEventListener("click",function(){
         moveToNext.style.display = "block";
     }
     forthQuestionPage(myQuestions);
+
     console.log(forthQuestionPage);
     })
 })
