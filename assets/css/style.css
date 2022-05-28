@@ -77,3 +77,8 @@ button {
 .firstquestion div button {
     margin: 5px;
 }
+
+.answer{
+    color: red;
+    padding: 50px;
+}

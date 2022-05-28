@@ -1,24 +1,23 @@
-var pageContectEL = document.querySelector("#myDIV");
-var secondContentEl = document.querySelector("#myDIV");
-document.getElementById("Start").addEventListener("click", function(){
-    var time = 10;
-    var countTime = setInterval(function(){
-        document.getElementById("time").innerHTML=time
+// var pageContectEL = document.querySelector("#myDIV");
+// var secondContentEl = document.querySelector("#myDIV");
+// document.getElementById("Start").addEventListener("click", function(){
+//     var time = 10;
+//     var countTime = setInterval(function(){
+//         document.getElementById("time").innerHTML=time
     
-        time--;
-        if (time === 0) {
-            stopInterval()
-        }
-    },1000);
+//         time--;
+//         if (time === 0) {
+//             stopInterval()
+//         }
+//     },1000);
     
-    var stopInterval = function(){
+//     var stopInterval = function(){
 
-        console.log('time is up');
-        clearInterval(countTime);
+//         console.log('time is up');
+//         clearInterval(countTime);
     
-    }
-    });
-
+//     }
+//     });
 
 
 
@@ -63,5 +62,32 @@ var quizData = [
 ];        
 
 
+var quiz= document.getElementById("quiz");
+var answerEl = document.querySelectorAll(".button");
+var questionEl= document.getElementById("question");
+var a_text = document.getElementById("a");
+var b_text = document.getElementById("b");
+var c_text = document.getElementById("c");
+var d_text = document.getElementById("d");
+var submitButton = document.getElementById("submit");
 
+var currentQuiz = 0
+var score = 0
 
+generateQuiz()
+//The quiz dynamically displayed
+function generateQuiz() {
+   
+    var currentQuizData = quizData[currentQuiz]
+
+    questionEl.innerText = currentQuizData.question
+    a_text.innerText = currentQuizData.a
+    b_text.innerText = currentQuizData.b
+    c_text.innerText = currentQuizData.c
+    d_text.innerText = currentQuizData.d
+
+}
+
+// Have button move to the next page
+var questionSet = document.getElementById("questionSet");
+console.log(questionSet);
