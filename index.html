@@ -30,15 +30,15 @@
     <main> 
 <!--First Page-->
      <div class="main" id="firstDiv">
-        <!--<h1>
+        <h1>
             Coding Quiz Challenge
         </h1>
 
         <p> Try to answer the following code-related questions within the time limit.
             Keep in mind that incorrect answers will penalize your score/time by ten seconds!
-        </p>-->
+        </p>
 
-        <button onclick="hideFirstPage()" id="Start" class="main">
+        <button onclick="hideFirstPage()" id="Start" class="button">
             Start Quiz
         </button>
         </div> 
@@ -64,20 +64,23 @@
 
         <div id="questionSet">
            
-            <button type="text" name="answer"  id="a" class="button"></button>
+            <button type="text" name="answer"  id="a" class="button-a" onclick="checkAnswer('A')"></button>
            
           
-            <button type="text" name="answer"  id="b" class="button"></button>
+            <button type="text" name="answer"  id="b" class="button-b"onclick="checkAnswer('B')"></button>
                 
          
-                <button type="text" name="answer"  id="c" class="button"></button>
+                <button type="text" name="answer"  id="c" class="button-c"onclick="checkAnswer('C')"></button>
                 
            
-                <button type="text" name="answer"  id="d" class="button"></button>
+                <button type="text" name="answer"  id="d" class="button-d"onclick="checkAnswer('D')"></button>
                 
             
 
         </div>  
+        <div id="answerCheck">
+
+        </div>
     </div>  
 </div>
 <!-- end of Second Page-->

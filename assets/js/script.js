@@ -1,7 +1,9 @@
 // var pageContectEL = document.querySelector("#myDIV");
 // var secondContentEl = document.querySelector("#myDIV");
 document.getElementById("Start").addEventListener("click", function(){
+   displayQuesitons();
     var time = 10;
+   
     var countTime = setInterval(function(){
         document.getElementById("time").innerHTML=time
     
@@ -51,21 +53,21 @@ var quizData = [
         b:"2. booleans",
         c:"3. alerts",
         d:"4. numbers",
-        correct:"3. alerts" 
+        correct:"C" //UPDATE TO CORRECT ANSWER
 },
 {   question: "The condition in an if / else statement is enclosed with _________.",
         a:"1. quotes",
         b:"2. curly brackets",
         c:"3. parenthesis",
         d:"4. square brackers",
-        correct:"2. curly brackets" 
+        correct:"C"
 },
 {   question: "String values must be enclosed within _________ when being assigned to variables.",
         a:"1. commas",
         b:"2. curly brackets",
         c:"3. quotes",
         d:"4. parenthesis",
-        correct:"2. quotes"
+        correct:"C"
 
 },
 
@@ -74,87 +76,95 @@ var quizData = [
         b:"2. terminal/bash",
         c:"3. for loops",
         d:"4. console.log",
-        correct:"4. console.log"
+        correct:"C"
 
 }
 
 ];        
 
-
+// create a variable for my start page
 var quiz= document.getElementById("quiz");
-var answerEls = document.querySelectorAll(".button");
+var answerEl = document.querySelector(".button-a");
+var answerEl = document.querySelector(".button-b");
+var answerEl = document.querySelector(".button-c");
+var answerEl = document.querySelector(".button-d");
 var questionEl= document.getElementById("question");
 var a_text = document.getElementById("a");
 var b_text = document.getElementById("b");
 var c_text = document.getElementById("c");
 var d_text = document.getElementById("d");
-var submitButton = document.getElementById("submit");
 
 var currentQuiz = 0
 var score = 0
-var task = [];
+
+
+
+
+
+
+function displayQuesitons (){
+//hide start page
+
 var currentQuizData = quizData[currentQuiz]
 
+if(currentQuiz === quizData.length)
+//return showScroe
 
-generateQuiz()
-//The quiz dynamically displayed
-function generateQuiz() {
-    deselectAnswers()
-    var currentQuizData = quizData[currentQuiz]
 
-    questionEl.innerText = currentQuizData.question
-    a_text.innerText = currentQuizData.a
-    b_text.innerText = currentQuizData.b
-    c_text.innerText = currentQuizData.c
-    d_text.innerText = currentQuizData.d
+questionEl.innerText = currentQuizData.question
+a_text.innerText = currentQuizData.a
+b_text.innerText = currentQuizData.b
+c_text.innerText = currentQuizData.c
+d_text.innerText = currentQuizData.d
 
-   
 }
 
-function deselectAnswers(){
-    answerEls.forEach(answerEl => answerEl.checked = false)
+
+
+var answerCheck = document.getElementById("answerCheck");
+
+var checkAnswer = function (userPick){
+    var correctAnswer= quizData[currentQuiz].correct
+
+    if (correctAnswer === userPick){
+        score++
+        answerCheck.textContent="correct!";
+    }
+else{
+    answerCheck.textContent="wrong!:".concat(correctAnswer);
 }
 
-function getSelected(){
-    var answer
-    answerEls.forEach(answerEl => {
-        if(answerEl.clicked){
-            answer = answerEl.id
-        }
+currentQuiz++
+displayQuesitons();
+}
+
+// function deselectAnswers(){
+//     answerEls.forEach(answerEl => answerEl.checked = false)
+// }
+
+// function getSelected(){
+//     var answer
+//     answerEls.forEach(answerEl => {
+//         if(answerEl.clicked){
+//             answer = answerEl.id
+//         }
         
-    });
+//     });
 
-    return answer
-}
-
-
-var selectButtons = document.querySelectorAll(".button");
-for (var i = 0; i < selectButtons.length; i++) {
-
-    selectButtons[i].addEventListener("click", function (){
+//     return answer
+// }
 
 
-        console.log("you clicked");
-        const answer = getSelected()
-        if (answer){
-            if (answer === quizData[currentQuiz].correct){
-                score++
-            }
+// var selectButtons = document.querySelectorAll(".button");
+// for (var i = 0; i < selectButtons.length; i++) {
 
-            currentQuiz++
+//     selectButtons[i].addEventListener("click", function (){
 
-            if(currentQuiz < quizData.length){
-                generateQuiz()
 
-            }
-            else{
-                quiz.innerHTML ="<h2>You answered</h2>";
-                
-                "<button onclick='location.reload()'>Reload</button>"
-            } 
-       }
-    })
-}   
+    
+       
+//     })
+// }   
 
 
 
