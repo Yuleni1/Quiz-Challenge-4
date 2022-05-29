@@ -1,226 +1,194 @@
-var pageContectEL = document.querySelector("#myDIV");
-var secondContentEl = document.querySelector("#myDIV");
+var time = 20;
+var countTime= document.getElementById("time");
+// var pageContectEL = document.querySelector("#myDIV");
+// var secondContentEl = document.querySelector("#myDIV");
 document.getElementById("Start").addEventListener("click", function(){
-    var time = 75;
+   displayQuesitons();
+   
+   
     var countTime = setInterval(function(){
         document.getElementById("time").innerHTML=time
     
         time--;
         if (time === 0) {
             stopInterval()
+            end()
         }
     },1000);
     
     var stopInterval = function(){
+        
         console.log('time is up');
         clearInterval(countTime);
+        
     }
     });
-    
-    
-    // hides first page on click
-    function hideFirstPage () {
-        var firstPage = document.getElementById("firstDiv");
-        if (firstPage.style.visibility === "hidden"){
-        firstQuestion.style.display = "block";}
-        else{
-            firstPage.style.visibility = "hidden";
-        }
-    };
-    
-    
-    function hideQuestion () {
-        var firstQuestion= document.getElementById("myDIV");
-        if (firstQuestion.style.display === "block") {
-            firstQuestion.style.display = "none";}
-            else {
-                firstQuestion.style.display = "block";
-            }
-    
-            //console.log(firstQuestion);
-        };
-    
-    function wrongAnswer() {
-        var wrongAnswerQuestion1 = document.getElementById("wrongAnswer");
-        if (wrongAnswerQuestion1.style.display === "block"){
-            wrongAnswerQuestion1.style.display = "none";}
-    
-            else {
-                wrongAnswerQuestion1.style.display = "block";}
-    //console.log(wrongAnswerQuestion1);
-            };
-    
-    function correctAnswer() {
-        var correctAnswerQuestion1 = document.getElementById("correctAnswer");
-        if (correctAnswerQuestion1.style.display === "block"){
-            correctAnswerQuestion1.style.display = "none";}
-    
-            else {
-                correctAnswerQuestion1.style.display = "block";}
-    //console.log(correctAnswerQuestion1);
-            };
-    
-var myQuestions = {
-    
-    question1:{
-        title1: "Commonly used data types DO Not Include",
-        choice1:"1. stings",
-        choice2:"2. booleans",
-        choice3:"3. alerts",
-        choice4:"4. numbers",
-        correctChoice:"3. alerts" 
-    },
-    question2:{
-        title2: "The condition in an if / else statement is enclosed with _________.",
-        choice1:"1. quotes",
-        choice2:"2. curly brackets",
-        choice3:"3. parenthesis",
-        choice4:"4. square brackers",
-        correctChoice:"2. curly brackets" 
-    },
-    question3:{
-        title3: "String values must be enclosed within _________ when being assigned to variables.",
-        choice1:"1. commas",
-        choice2:"2. curly brackets",
-        choice3:"3. quotes",
-        choice4:"4. parenthesis",
-        correctChoice:"2. quotes"
 
-    },
-
-    question4:{
-        title4: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        choice1:"1. JavaScript",
-        choice2:"2. terminal/bash",
-        choice3:"3. for loops",
-        choice4:"4. console.log",
-        correctChoice:"4. console.log"
-
+function hideFirstPage () {
+    var firstPage = document.getElementById("firstDiv");
+    if (firstPage.style.visibility === "hidden"){
+    firstQuestion.style.display = "block";}
+    else{
+        firstPage.style.visibility = "hidden";
     }
-
-};        
-
+};
 
 
-function firstQuestionPage (){
+function hideQuestion () {
+    var firstQuestion= document.getElementById("myDIV");
+    if (firstQuestion.style.display === "block") {
+        firstQuestion.style.display = "none";}
+        else {
+            firstQuestion.style.display = "block";
+        }
+
+        //console.log(firstQuestion);
+    };
+
     
 
-    var firstQuestionEl = document.getElementById("question");
-    firstQuestionEl.textContent = myQuestions.question1.title1;
 
-    console.log(firstQuestionEl);
+var quizData = [
 
-    var firstQuestionAnswerEL = document.getElementById("choice1");
-    firstQuestionAnswerEL.textContent = myQuestions.question1.choice1;
+{
+    question: "Commonly used data types DO Not Include",
+        a:"1. stings",
+        b:"2. booleans",
+        c:"3. alerts",
+        d:"4. numbers",
+        correct:"C" //UPDATE TO CORRECT ANSWER
+},
+{   question: "The condition in an if / else statement is enclosed with _________.",
+        a:"1. quotes",
+        b:"2. curly brackets",
+        c:"3. parenthesis",
+        d:"4. square brackers",
+        correct:"C"
+},
+{   question: "String values must be enclosed within _________ when being assigned to variables.",
+        a:"1. commas",
+        b:"2. curly brackets",
+        c:"3. quotes",
+        d:"4. parenthesis",
+        correct:"C"
 
-    var firstQuestionAnswerEL = document.getElementById("choice2");
-    firstQuestionAnswerEL.textContent = myQuestions.question1.choice2;
+},
 
-    var firstQuestionAnswerEL = document.getElementById("choice3");
-    firstQuestionAnswerEL.textContent = myQuestions.question1.choice3;
+{   question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        a:"1. JavaScript",
+        b:"2. terminal/bash",
+        c:"3. for loops",
+        d:"4. console.log",
+        correct:"C"
 
-    var firstQuestionAnswerEL = document.getElementById("choice4");
-    firstQuestionAnswerEL.textContent = myQuestions.question1.choice4;
+}
+
+];        
+
+// create a variable for my start page
+var quizEnd=document.getElementById("end");
+var main= document.getElementById("firstDiv");
+var quiz=document.getElementById("quiz");
+var questionEl= document.querySelector(".questions");
+console.log(questionEl);
+var answerEl = document.querySelector(".button-a");
+var answerEl = document.querySelector(".button-b");
+var answerEl = document.querySelector(".button-c");
+var answerEl = document.querySelector(".button-d");
+
+var a_text = document.getElementById("a");
+var b_text = document.getElementById("b");
+var c_text = document.getElementById("c");
+var d_text = document.getElementById("d");
+var finalScore = document.getElementById("score");
+var finalInitialsEl = document.getElementById("initials");
+
+var currentQuiz = 0
+var score = 0
+
+main.style.display="block";
+quiz.style.display="none";
+quizEnd.style.display="none";
+
+
+
+function displayQuesitons (){
+quiz.style.display="block";
+
+var currentQuizData = quizData[currentQuiz];
+
+if(currentQuiz === quizData.length){}
+//return showScroe
+
+questionEl.textContent = currentQuizData.question
+a_text.textContent = currentQuizData.a
+b_text.textContent = currentQuizData.b
+c_text.textContent = currentQuizData.c
+d_text.textContent = currentQuizData.d
+
+
+save ();
+}
+
+
+
+var answerCheck = document.getElementById("answerCheck");
+
+var checkAnswer = function (userPick){
+    var correctAnswer= quizData[currentQuiz].correct
+
+    if (correctAnswer === userPick){
+        score++
+        answerCheck.textContent="correct!";
+        console.log(score);
+    }
+else{
+    time = time - 10;
+    console.log(time);
+    answerCheck.textContent="wrong!:".concat(correctAnswer);
+}
+
+currentQuiz++
+displayQuesitons();
+
+}
+
+//function for timer reaches 0
+function end (){
+
+    quiz.style.display="none";
+    quizEnd.style.display="block";
+    countTime.style.display="none"
+    
+    displayScore ()
+    
+}
+
+function save (){
+localStorage.setItem("score", JSON.stringify(score));
 
 };
 
-firstQuestionPage(myQuestions);
+function displayScore (){
+    var savedScore = localStorage.getItem("score");
+    finalScore.textContent = "this is your final score!" + score;
 
-pageContectEL.addEventListener("click",function(){
- 
-    var moveToNext = document.getElementById("myDIV");
-    moveToNext.style.display = "none";
-
-    function secondQuestionPage(){
-        var questionEl = document.getElementById("question");
-        questionEl.textContent = myQuestions.question2.title2;
-        console.log(questionEl);
-
-        var answerEl = document.getElementById("choice1");
-        answerEl.textContent = myQuestions.question2.choice1;
-    
-        var answerEl = document.getElementById("choice2");
-        answerEl.textContent = myQuestions.question2.choice2;
-    
-        var answerEl = document.getElementById("choice3");
-        answerEl.textContent = myQuestions.question2.choice3;
-    
-        var answerEl = document.getElementById("choice4");
-        answerEl.textContent = myQuestions.question2.choice4;
-    
-    }
-
-    if (moveToNext.style.display = "none"){
-        moveToNext.style.display = "block";
-    }
-    secondQuestionPage(myQuestions);
-
-
-
-pageContectEL.addEventListener("click",function(){ 
-    var moveToNext = document.getElementById("myDIV");
-    moveToNext.style.display = "none";
-
-    function thirdQuestionPage(){
-        var thirdQuestionEl = document.getElementById("question");
-        thirdQuestionEl.textContent = myQuestions.question3.title3;
-        console.log(thirdQuestionEl);
-
-        var thirdAnswerEl = document.getElementById("choice1");
-        thirdAnswerEl.textContent = myQuestions.question3.choice1;
-    
-        var thirdAnswerEl = document.getElementById("choice2");
-        thirdAnswerEl.textContent = myQuestions.question3.choice2;
-    
-        var thirdAnswerEl = document.getElementById("choice3");
-        thirdAnswerEl.textContent = myQuestions.question3.choice3;
-    
-        var thirdAnswerEl = document.getElementById("choice4");
-        thirdAnswerEl.textContent = myQuestions.question3.choice4;
-    
+    if(!savedScore) {
+        return false;
     }
 
     
-    if (moveToNext.style.display = "none"){
-        moveToNext.style.display = "block";
-    }
-    thirdQuestionPage(myQuestions);
-    console.log(thirdQuestionPage);
+}
+
+function submit(){
+var initials =  document.getElementById("initials").value;
+var allInitials = JSON.parse(localStorage.getItem("allInitials")) || [];
+allInitials.push("INITIALS:  " + initials + "  YOUR SCORE IS : " + score);
+localStorage.setItem("allInitials", JSON.stringify(allInitials));
+document.getElementById("initials").value = "";
+document.getElementById("initialList").innerHTML = localStorage.getItem("allInitials")
+  
+
+}
 
 
-     
-
-
-pageContectEL.addEventListener("click",function(){ 
-    var moveToNext = document.getElementById("myDIV");
-    moveToNext.style.display = "none";
-
-    function forthQuestionPage(){
-        var forthQuestionEl = document.getElementById("question");
-        forthQuestionEl.textContent = myQuestions.question4.title4;
-        console.log(forthQuestionEl);
-
-        var forthAnswerEl = document.getElementById("choice1");
-        forthAnswerEl.textContent = myQuestions.question4.choice1;
-    
-        var forthAnswerEl = document.getElementById("choice2");
-        forthAnswerEl.textContent = myQuestions.question4.choice2;
-    
-        var forthAnswerEl = document.getElementById("choice3");
-        forthAnswerEl.textContent = myQuestions.question4.choice3;
-    
-        var forthAnswerEl = document.getElementById("choice4");
-        forthAnswerEl.textContent = myQuestions.question4.choice4;
-    
-    }
-
-    
-    if (moveToNext.style.display = "none"){
-        moveToNext.style.display = "block";
-    }
-    forthQuestionPage(myQuestions);
-
-    console.log(forthQuestionPage);
-    })
-})
-})

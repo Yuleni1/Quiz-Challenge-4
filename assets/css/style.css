@@ -1,5 +1,8 @@
 * {
   box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -25,6 +28,17 @@ header nav ul li {
     justify-content:space-between;
 }
 
+
+.time {
+
+    font-size: 20px;
+    margin: 100px 0px 100px 100px;
+
+}
+
+.dynamic-time {
+    font-size: 100px;
+}
 
 .main {
     text-align: center;
@@ -54,7 +68,7 @@ button {
     color: white;
 }
 
-.wronganswer {
+/* .wronganswer {
     display: none;
 }
 
@@ -65,7 +79,7 @@ button {
 .firstquestion {
     display: none;
 
-}
+} */
 
 .firstquestion div {
     display: flex;
@@ -76,4 +90,9 @@ button {
 
 .firstquestion div button {
     margin: 5px;
+}
+
+.answer{
+    color: red;
+    padding: 15px;
 }

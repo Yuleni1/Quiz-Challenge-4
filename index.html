@@ -18,18 +18,19 @@
                    <a href="#view-high-scores">View high scores</a> 
                 </li>
             </ul>
-            <ul>
-                <li id="time">
-                    Time: 
-                </li>
-            </ul>
+            <div>
+                <p class="time">Time:</p>
+                <h2 id="time" class="dynamic-time">
+                
+                </h2>
+            </div>
         </Nav>  
     </header>
 
 
-    <main>
-<!--First Page-->
-        <div class="main" id="firstDiv">
+    <main> 
+<!--Start Page-->
+     <div class="main" id="firstDiv">
         <h1>
             Coding Quiz Challenge
         </h1>
@@ -38,41 +39,68 @@
             Keep in mind that incorrect answers will penalize your score/time by ten seconds!
         </p>
 
-        <button onclick="hideFirstPage(); hideQuestion ()" id="Start">
+        <button onclick="hideFirstPage()" id="Start" class="button">
             Start Quiz
         </button>
-        </div>
+        </div> 
 
-<!--End of First Page -->
+<!--Start Page -->
 
-<div class="wronganswer" id="wrongAnswer">
-    <span> WRONG ANSWER!</span>
-</div>
 
-<div class="correctanswer" id="correctAnswer">
-    <span> CORRECT ANSWER!</span>
-</div>
+<!--Quiz Page-->
 
-<!--Second Page-->
-
-<div class="firstpage firstquestion" id="myDIV">
+<div class="firstpage firstquestion" id="quiz">
         
     <div>     
-        <h2 id="question">
-            <!-- Commonly used data types DO Not Include -->
-        </h2>
+        <h2 class="questions"></h2>
+            
+        
 
-        <div id="clicked">
-            <button id="choice1" onclick="wrongAnswer();"></button>
-            <button id="choice2" onclick="correctAnswer();"></button>
-            <button id="choice3" onclick="wrongAnswer();"></button>
-            <button id="choice4" onclick="wrongAnswer();"></button>
+        <div id="questionSet">
+           
+            <button type="text" name="answer"  id="a" class="button-a" onclick="checkAnswer('A')"></button>
+           
+          
+            <button type="text" name="answer"  id="b" class="button-b"onclick="checkAnswer('B')"></button>
+                
+         
+                <button type="text" name="answer"  id="c" class="button-c"onclick="checkAnswer('C')"></button>
+                
+           
+                <button type="text" name="answer"  id="d" class="button-d"onclick="checkAnswer('D')"></button>
+                
+            
+
         </div>  
+        <div id="answerCheck">
+
+        </div>
     </div>  
 </div>
+<!-- Quiz page-->
 
-<!-- end of Second Page-->
+<!--End Quiz Page-->
+<div id="end">
+    <h2>QUIZ OVER!</h2>
+    
+    <div id="score">
+        Score: 
+    </div>
 
+    
+    <input type="text" id="initials" placeholder="input initials"/>
+       <button onClick="submit()">Submit</button>
+       
+
+</div>
+
+
+<div id=view-high-scores class="high-score" >
+
+
+<div id="initialList"></div> 
+
+</div>
     </main>
    
     <footer>
