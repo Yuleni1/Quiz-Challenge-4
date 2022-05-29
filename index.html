@@ -18,11 +18,12 @@
                    <a href="#view-high-scores">View high scores</a> 
                 </li>
             </ul>
-            <ul>
-                <li id="time">
-                    Time: 
-                </li>
-            </ul>
+            <div>
+                <p class="time">Time:</p>
+                <h2 id="time" class="dynamic-time">
+                
+                </h2>
+            </div>
         </Nav>  
     </header>
 
@@ -80,19 +81,26 @@
 
 <!--End Quiz Page-->
 <div id="end">
-    <h2>Finished</h2>
+    <h2>QUIZ OVER!</h2>
     
     <div id="score">
         Score: 
     </div>
 
-    <input type="text" id="initials"/>
+    
+    <input type="text" id="initials" placeholder="input initials"/>
+       <button onClick="submit()">Submit</button>
        
-        
-
 
 </div>
 
+
+<div id=view-high-scores class="high-score" >
+
+
+<div id="initialList"></div> 
+
+</div>
     </main>
    
     <footer>

@@ -1,4 +1,5 @@
-var time = 5;
+var time = 20;
+var countTime= document.getElementById("time");
 // var pageContectEL = document.querySelector("#myDIV");
 // var secondContentEl = document.querySelector("#myDIV");
 document.getElementById("Start").addEventListener("click", function(){
@@ -157,8 +158,10 @@ function end (){
 
     quiz.style.display="none";
     quizEnd.style.display="block";
+    countTime.style.display="none"
+    
     displayScore ()
-    createInitails ()
+    
 }
 
 function save (){
@@ -177,33 +180,15 @@ function displayScore (){
     
 }
 
-function createInitails (){
-    //var saveCreatedInitials = document.getElementById("initials");
-    var userInitials = document.createElement("input")
-    userInitials.setAttribute("id", "initails-input"); 
-    userInitials.setAttribute("type", "text"); 
-    userInitials.setAttribute("name", "iniatials"); 
-    userInitials.setAttribute("placeholder", "Enter Initials here"); 
-    finalInitialsEl.appendChild(userInitials);
+function submit(){
+var initials =  document.getElementById("initials").value;
+var allInitials = JSON.parse(localStorage.getItem("allInitials")) || [];
+allInitials.push("INITIALS:  " + initials + "  YOUR SCORE IS : " + score);
+localStorage.setItem("allInitials", JSON.stringify(allInitials));
+document.getElementById("initials").value = "";
+document.getElementById("initialList").innerHTML = localStorage.getItem("allInitials")
+  
 
-    //save button 
-
-    saveButtonEl = document.createElement("button");
-
-    saveButtonEl.setAttribute("id" , "save-btn");
-    saveButtonEl.setAttribute("class" ,"save-btn");
-    saveButtonEl.setAttribute("type" , "submit");
-    saveButtonEl.textContent = "Save Score";
-
-    console.log(createInitails());
 }
-// function saveInitials (){
-//     localStorage.setItem("initials", JSON.stringify(initials));
-// }
-
-// function  savedInitials (){
-//     localStorage.getItem("initials");
-//     savedInitials
-// }
 
 
