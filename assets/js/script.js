@@ -1,8 +1,9 @@
+var time = 75;
 // var pageContectEL = document.querySelector("#myDIV");
 // var secondContentEl = document.querySelector("#myDIV");
 document.getElementById("Start").addEventListener("click", function(){
    displayQuesitons();
-    var time = 10;
+   
    
     var countTime = setInterval(function(){
         document.getElementById("time").innerHTML=time
@@ -83,12 +84,15 @@ var quizData = [
 ];        
 
 // create a variable for my start page
-var quiz= document.getElementById("quiz");
+var main= document.getElementById("firstDiv");
+var quiz=document.getElementById("quiz");
+var questionEl= document.querySelector(".questions");
+console.log(questionEl);
 var answerEl = document.querySelector(".button-a");
 var answerEl = document.querySelector(".button-b");
 var answerEl = document.querySelector(".button-c");
 var answerEl = document.querySelector(".button-d");
-var questionEl= document.getElementById("question");
+
 var a_text = document.getElementById("a");
 var b_text = document.getElementById("b");
 var c_text = document.getElementById("c");
@@ -98,24 +102,25 @@ var currentQuiz = 0
 var score = 0
 
 
-
+main.style.display="block";
+quiz.style.display="none";
 
 
 
 function displayQuesitons (){
-//hide start page
+quiz.style.display="block";
 
-var currentQuizData = quizData[currentQuiz]
+var currentQuizData = quizData[currentQuiz];
 
-if(currentQuiz === quizData.length)
+if(currentQuiz === quizData.length){}
 //return showScroe
 
 
-questionEl.innerText = currentQuizData.question
-a_text.innerText = currentQuizData.a
-b_text.innerText = currentQuizData.b
-c_text.innerText = currentQuizData.c
-d_text.innerText = currentQuizData.d
+questionEl.textContent = currentQuizData.question
+a_text.textContent = currentQuizData.a
+b_text.textContent = currentQuizData.b
+c_text.textContent = currentQuizData.c
+d_text.textContent = currentQuizData.d
 
 }
 
@@ -131,6 +136,8 @@ var checkAnswer = function (userPick){
         answerCheck.textContent="correct!";
     }
 else{
+    time = time - 10;
+    console.log(time);
     answerCheck.textContent="wrong!:".concat(correctAnswer);
 }
 
@@ -138,62 +145,12 @@ currentQuiz++
 displayQuesitons();
 }
 
-// function deselectAnswers(){
-//     answerEls.forEach(answerEl => answerEl.checked = false)
-// }
-
-// function getSelected(){
-//     var answer
-//     answerEls.forEach(answerEl => {
-//         if(answerEl.clicked){
-//             answer = answerEl.id
-//         }
-        
-//     });
-
-//     return answer
-// }
-
-
-// var selectButtons = document.querySelectorAll(".button");
-// for (var i = 0; i < selectButtons.length; i++) {
-
-//     selectButtons[i].addEventListener("click", function (){
-
-
-    
-       
-//     })
-// }   
+//function for timer reaches 0
 
 
 
 
 
-// Have all button click
 
 
-
-
-//  // have buttons click to the next question   
-
-// function clickNext(){
-    
-//     console.log("you cliked")
-// for (var i = 0; i < quizData.length; i++){
-
-   
-//    var nextQ=[questionEl.innerHTML=currentQuizData[i]+1,
-//     a_text.textContent=quizData[i],
-//     b_text.textContent=quizData[i],
-//     c_text.textContent=quizData[i],
-//     d_text.textContent=quizData[i]]
-    
-//     userSelections.push(nextQ);
-// }
-     
-// }
-    
-
-// console.log(clickNext);
 
