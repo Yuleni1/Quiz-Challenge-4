@@ -1,5 +1,8 @@
 var time = 20;
 var countTime= document.getElementById("time");
+var stopInterval = function(){
+clearInterval(countTime);     
+}
 // var pageContectEL = document.querySelector("#myDIV");
 // var secondContentEl = document.querySelector("#myDIV");
 document.getElementById("Start").addEventListener("click", function(){
@@ -10,18 +13,13 @@ document.getElementById("Start").addEventListener("click", function(){
         document.getElementById("time").innerHTML=time
     
         time--;
-        if (time === 0) {
+        if (time <= 0) {
             stopInterval()
             end()
         }
     },1000);
     
-    var stopInterval = function(){
-        
-        console.log('time is up');
-        clearInterval(countTime);
-        
-    }
+   
     });
 
 function hideFirstPage () {
@@ -116,9 +114,13 @@ function displayQuesitons (){
 quiz.style.display="block";
 
 var currentQuizData = quizData[currentQuiz];
+console.log(currentQuiz);
 
-if(currentQuiz === quizData.length){}
-//return showScroe
+
+if(currentQuiz === quizData.length){
+console.log(quizData.length);
+    checkUserQuestion()
+}
 
 questionEl.textContent = currentQuizData.question
 a_text.textContent = currentQuizData.a
@@ -126,8 +128,16 @@ b_text.textContent = currentQuizData.b
 c_text.textContent = currentQuizData.c
 d_text.textContent = currentQuizData.d
 
-
 save ();
+
+}
+
+var checkUserQuestion = function(){
+    
+       quiz.style.display="none";
+        quizEnd.style.display="block";
+        countTime.style.display="none"
+    
 }
 
 
@@ -140,18 +150,21 @@ var checkAnswer = function (userPick){
     if (correctAnswer === userPick){
         score++
         answerCheck.textContent="correct!";
-        console.log(score);
+        // console.log(score);
     }
 else{
+
     time = time - 10;
-    console.log(time);
+    // console.log(time);
     answerCheck.textContent="wrong!:".concat(correctAnswer);
 }
 
 currentQuiz++
+
 displayQuesitons();
 
 }
+
 
 //function for timer reaches 0
 function end (){
@@ -190,5 +203,7 @@ document.getElementById("initialList").innerHTML = localStorage.getItem("allInit
   
 
 }
+
+
 
 
