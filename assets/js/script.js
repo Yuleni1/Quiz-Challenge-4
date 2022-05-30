@@ -1,19 +1,19 @@
-var time = 20;
+var time = 35;
 var countTime= document.getElementById("time");
 var stopInterval = function(){
 clearInterval(countTime);     
 }
-// var pageContectEL = document.querySelector("#myDIV");
-// var secondContentEl = document.querySelector("#myDIV");
+//time intercal
 document.getElementById("Start").addEventListener("click", function(){
    displayQuesitons();
    
-   
-    var countTime = setInterval(function(){
+ 
+    countTime = setInterval(function(){
         document.getElementById("time").innerHTML=time
     
         time--;
         if (time <= 0) {
+            console.log(time);
             stopInterval()
             end()
         }
@@ -40,21 +40,20 @@ function hideQuestion () {
             firstQuestion.style.display = "block";
         }
 
-        //console.log(firstQuestion);
     };
 
     
 
-
+//quiz array
 var quizData = [
 
 {
     question: "Commonly used data types DO Not Include",
-        a:"1. stings",
+        a:"1. strings",
         b:"2. booleans",
-        c:"3. alerts",
+        c:"3. tags",
         d:"4. numbers",
-        correct:"C" //UPDATE TO CORRECT ANSWER
+        correct:"C" 
 },
 {   question: "The condition in an if / else statement is enclosed with _________.",
         a:"1. quotes",
@@ -77,13 +76,13 @@ var quizData = [
         b:"2. terminal/bash",
         c:"3. for loops",
         d:"4. console.log",
-        correct:"C"
+        correct:"D"
 
 }
 
 ];        
 
-// create a variable for my start page
+//list of html element connections
 var quizEnd=document.getElementById("end");
 var main= document.getElementById("firstDiv");
 var quiz=document.getElementById("quiz");
@@ -101,39 +100,45 @@ var d_text = document.getElementById("d");
 var finalScore = document.getElementById("score");
 var finalInitialsEl = document.getElementById("initials");
 
+//setting user quiz and scor at 0
 var currentQuiz = 0
 var score = 0
 
+
+//setting default styles
 main.style.display="block";
 quiz.style.display="none";
 quizEnd.style.display="none";
 
 
-
+//function to display the questions
 function displayQuesitons (){
 quiz.style.display="block";
 
+//createing a variable that connect quizdata and user quiz
 var currentQuizData = quizData[currentQuiz];
-console.log(currentQuiz);
 
 
+//checking that if the current quiz matches the quiz data endez to go to check user function. 
 if(currentQuiz === quizData.length){
-console.log(quizData.length);
     checkUserQuestion()
 }
 
+//connecting the array to the html elements
 questionEl.textContent = currentQuizData.question
 a_text.textContent = currentQuizData.a
 b_text.textContent = currentQuizData.b
 c_text.textContent = currentQuizData.c
 d_text.textContent = currentQuizData.d
 
+//saving score
 save ();
 
 }
 
+//function to move to last page
 var checkUserQuestion = function(){
-    
+    clearInterval(countTime);
        quiz.style.display="none";
         quizEnd.style.display="block";
         countTime.style.display="none"
@@ -141,50 +146,45 @@ var checkUserQuestion = function(){
 }
 
 
-
+//function to check the user answer input
 var answerCheck = document.getElementById("answerCheck");
 
 var checkAnswer = function (userPick){
     var correctAnswer= quizData[currentQuiz].correct
 
+    //if answer is correct to add 1
     if (correctAnswer === userPick){
         score++
-        answerCheck.textContent="correct!";
+        answerCheck.textContent="Correct! 😀";
         // console.log(score);
     }
 else{
-
+    //if answer is incorrect then subtract 10
     time = time - 10;
-    // console.log(time);
-    answerCheck.textContent="wrong!:".concat(correctAnswer);
+    answerCheck.textContent="Wrong!😬:".concat(correctAnswer);
 }
 
+//adding 1 to the current quiz to move the user to the next question. 
 currentQuiz++
 
+//reapplying the displayQuestion function 
 displayQuesitons();
 
 }
 
 
-//function for timer reaches 0
-function end (){
 
-    quiz.style.display="none";
-    quizEnd.style.display="block";
-    countTime.style.display="none"
-    
-    displayScore ()
-    
-}
 
+//saving the score 
 function save (){
 localStorage.setItem("score", JSON.stringify(score));
 
 };
-
+//displaying the score
 function displayScore (){
+    clearInterval(countTime);
     var savedScore = localStorage.getItem("score");
-    finalScore.textContent = "this is your final score!" + score;
+    finalScore.textContent = "this is your final score!  " + score;
 
     if(!savedScore) {
         return false;
@@ -193,9 +193,12 @@ function displayScore (){
     
 }
 
+//submitting user initials
+
 function submit(){
-var initials =  document.getElementById("initials").value;
-var allInitials = JSON.parse(localStorage.getItem("allInitials")) || [];
+    var initials =  document.getElementById("initials").value;
+    var allInitials=[];
+allInitials = JSON.parse(localStorage.getItem("allInitials")) || [];
 allInitials.push("INITIALS:  " + initials + "  YOUR SCORE IS : " + score);
 localStorage.setItem("allInitials", JSON.stringify(allInitials));
 document.getElementById("initials").value = "";
@@ -206,4 +209,14 @@ document.getElementById("initialList").innerHTML = localStorage.getItem("allInit
 
 
 
+//function for timer reaches 0
+function end (){
+    clearInterval(countTime);
+    quiz.style.display="none";
+    quizEnd.style.display="block";
+    countTime.style.display="none";
+    allInitials.style.display="none";
+    displayScore ()
+    
+}
 

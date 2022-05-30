@@ -11,11 +11,6 @@ body {
      
  }
 
-/* header {
-    display: flex;
-    
-}*/
-
 
 header nav div {
     display: flex;
@@ -23,14 +18,6 @@ header nav div {
     align-items: baseline;
     
 }
-/* 
-header nav ul {
-    list-style: none;   
-}
-
-header nav ul li {
-    justify-content:space-between;
-}  */
 
 
 .time {
@@ -75,18 +62,9 @@ button {
     color: white;
 }
 
-/* .wronganswer {
-    display: none;
+.answer-check{
+    color: pink;
 }
-
-.correctanswer{
-    display: none;
-}
-
-.firstquestion {
-    display: none;
-
-} */
 
 .firstquestion div {
     display: flex;
@@ -103,3 +81,25 @@ button {
     color: red;
     padding: 15px;
 }
+
+.quiz-end{
+    font-size: 50px;
+    color: pink;
+    text-align: center;
+    padding: 100px 0px;
+} 
+
+.input{
+    padding: 20px;
+    border-block-color: pink;
+    border-radius: 10px;
+}
+
+.initials{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 15px;
+    color: lightpink;
+    font-weight: 800;
+} 

@@ -13,11 +13,7 @@
 
     <header>
         <Nav>
-            <ul>
-                <li>
-                   <a href="#view-high-scores">View high scores</a> 
-                </li>
-            </ul>
+        
             <div>
                 <p class="dynamic-time">Time:</p>
                 <h2 id="time" class="dynamic-time">
@@ -47,7 +43,7 @@
 <!--Start Page -->
 
 
-<!--Quiz Page-->
+<!--Quiz-->
 
 <div class="firstpage firstquestion" id="quiz">
         
@@ -72,34 +68,40 @@
             
 
         </div>  
-        <div id="answerCheck">
+        <div id="answerCheck" class="answer-check">
 
         </div>
     </div>  
 </div>
-<!-- Quiz page-->
+<!--Quiz Ends-->
+
 
 <!--End Quiz Page-->
-<div id="end">
-    <h2>QUIZ OVER!</h2>
+<div id="end"class="quiz-end" style="display: none;">
+        <h2 >QUIZ OVER!</h2>
     
-    <div id="score">
-        Score: 
-    </div>
+            <div id="score">
+                Score: 
+             </div>
 
     
-    <input type="text" id="initials" placeholder="input initials"/>
-       <button onClick="submit()">Submit</button>
-       
+            <input type="text" id="initials" placeholder="input initials" class="input" />
+            <button onClick="submit()">Submit</button>
+
+             <h2> High Score</h2>
+    
 
 </div>
 
+<div>
+    
+    <div id="initialList" class="initials">
+   
+    </div> 
 
-<div id=view-high-scores class="high-score" >
 
-
-<div id="initialList"></div> 
-
+</div>
+<!--End Quiz Page Ends-->
 </div>
     </main>
    
