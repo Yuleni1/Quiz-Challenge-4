@@ -24,13 +24,12 @@ SO THAT I can gauge my progress compared to my peers
 
 ## Concept
 
-This Quiz helps users reinfors JavaSript fundamentals
+This Quiz helps users reinforces JavaSript fundamentals.
 
 ## Deployed Application
 https://yuleni1.github.io/Quiz-Challenge-4/
 
-![Quiz](/assets/Screenshot%202022-05-29%20162904.png)
-
+![Quiz](/assets/Screenshot%202022-05-30%20192810.png)
 
 
 ## Technologies Required
